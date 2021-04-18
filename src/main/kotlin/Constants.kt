@@ -1,3 +1,3 @@
 object Constants {
-    const val VIAL_MAX_CAPACITY: Short = 4
+    const val VIAL_MAX_CAPACITY: Int = 4
 }

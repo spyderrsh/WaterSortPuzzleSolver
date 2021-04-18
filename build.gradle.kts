@@ -21,13 +21,20 @@ dependencies {
     implementation("junit:junit:4.13.1")
 }
 
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "11"
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "11"
+        freeCompilerArgs += listOf(
+            "-Xuse-experimental=kotlin.ExperimentalUnsignedTypes",
+            "-XXLanguage:+InlineClasses"
+        )
+    }
+
 }
 
-tasks.withType<Test>() {
+tasks.withType<Test> {
     project.logger.lifecycle("Executing a test")
-    testLogging{
+    testLogging {
         showStandardStreams = true
     }
 }
